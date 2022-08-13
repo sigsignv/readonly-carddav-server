@@ -7,5 +7,7 @@
             "email": "sig@signote.cc"
         }
     ],
-    "require": {}
+    "require": {
+        "sabre/dav": "^4.4"
+    }
 }
