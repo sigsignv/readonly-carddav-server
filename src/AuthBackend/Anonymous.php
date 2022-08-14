@@ -19,9 +19,8 @@ class Anonymous implements BackendInterface
             $request,
             $response
         );
-        $credential = $auth->getCredentials();
-        if (!$credential) {
-            return [false, 'Re-try needed'];
+        if (!$auth->getCredentials()) {
+            return [false, 'Basic auth must be failed at least once'];
         }
         return [true, 'principals/anonymous'];
     }
