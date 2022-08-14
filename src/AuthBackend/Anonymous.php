@@ -10,15 +10,26 @@ use Sabre\HTTP\ResponseInterface;
 
 class Anonymous implements BackendInterface
 {
+    protected $realm = 'Cross';
+
     public function check(RequestInterface $request, ResponseInterface $response)
     {
+        $auth = new \Sabre\HTTP\Auth\Basic(
+            $this->realm,
+            $request,
+            $response
+        );
+        $credential = $auth->getCredentials();
+        if (!$credential) {
+            return [false, 'Re-try needed'];
+        }
         return [true, 'principals/anonymous'];
     }
 
     public function challenge(RequestInterface $request, ResponseInterface $response)
     {
         $auth = new \Sabre\HTTP\Auth\Basic(
-            'Cross',
+            $this->realm,
             $request,
             $response,
         );
