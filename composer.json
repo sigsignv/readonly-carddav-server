@@ -7,6 +7,11 @@
             "email": "sig@signote.cc"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Cross\\": "src/"
+        }
+    },
     "require": {
         "sabre/dav": "^4.4"
     }
