@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace Cross;
 
-use Sabre\DAV\Auth\Backend\BackendInterface;
 use Sabre\HTTP\RequestInterface;
 use Sabre\HTTP\ResponseInterface;
 
-class AuthBackend implements BackendInterface
+class AuthBackend implements \Sabre\DAV\Auth\Backend\BackendInterface
 {
     protected $realm = 'Cross';
 
