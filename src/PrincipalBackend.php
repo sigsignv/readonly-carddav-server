@@ -43,7 +43,7 @@ class PrincipalBackend extends \Sabre\DAVACL\PrincipalBackend\AbstractBackend
 
     public function searchPrincipals($prefixPath, array $searchProperties, $test = 'allof')
     {
-        if ($prefixPath !== 'principals' || empty($searchProperties)) {
+        if ($prefixPath !== 'principals' || \count($searchProperties) === 0) {
             return [];
         }
         return ['principals/anonymous'];
