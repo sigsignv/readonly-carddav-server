@@ -7,7 +7,7 @@ namespace Cross;
 use Sabre\CardDAV;
 use Sabre\DAV\Exception\NotImplemented;
 
-class CardDAVBackend implements \Sabre\CardDAV\Backend\BackendInterface
+class CardDAVBackend extends \Sabre\CardDAV\Backend\AbstractBackend
 {
     public $dir;
 
@@ -110,11 +110,6 @@ class CardDAVBackend implements \Sabre\CardDAV\Backend\BackendInterface
             'etag' => $this->getEtag($vcf->getSize(), $vcf->getMtime()),
             'size' => $vcf->getSize(),
         ];
-    }
-
-    public function getMultipleCards($addressBookId, array $uris)
-    {
-        throw new NotImplemented('Can not getMultipleCards');
     }
 
     public function createCard($addressBookId, $cardUri, $cardData)
