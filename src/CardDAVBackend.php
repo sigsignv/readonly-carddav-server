@@ -5,10 +5,9 @@ declare(strict_types=1);
 namespace Cross;
 
 use Sabre\CardDAV;
-use Sabre\CardDAV\Backend\BackendInterface;
 use Sabre\DAV\Exception\NotImplemented;
 
-class CardDAVBackend implements BackendInterface
+class CardDAVBackend implements \Sabre\CardDAV\Backend\BackendInterface
 {
     public $dir;
 
