@@ -10,8 +10,8 @@ $baseUri = '/';
 $dir = dir(__DIR__ . '/data');
 
 // Backends
-$authBackend = new Cross\AuthBackend\Anonymous();
-$principalBackend = new Cross\PrincipalBackend\Anonymous();
+$authBackend = new Cross\AuthBackend();
+$principalBackend = new Cross\PrincipalBackend();
 $carddavBackend = new Cross\CardDAVBackend\StaticFile($dir);
 
 // Direcotry tree

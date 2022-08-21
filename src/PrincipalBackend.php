@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Cross\PrincipalBackend;
+namespace Cross;
 
 use Sabre\DAVACL\PrincipalBackend\AbstractBackend;
 
-class Anonymous extends AbstractBackend
+class PrincipalBackend extends AbstractBackend
 {
     public function getPrincipalsByPrefix($prefixPath)
     {
