@@ -11,9 +11,9 @@ class PrincipalBackend extends \Sabre\DAVACL\PrincipalBackend\AbstractBackend
         $principals = [];
         if ($prefixPath === 'principals') {
             $principals[] = [
-                'uri' => 'principals/anonymous',
+                'uri' => 'principals/public',
                 '{http://sabredav.org/ns}email-address' => 'anonymous@example.com',
-                '{DAV:}displayname' => 'Anonymous',
+                '{DAV:}displayname' => 'Public',
             ];
         }
         return $principals;
@@ -22,12 +22,12 @@ class PrincipalBackend extends \Sabre\DAVACL\PrincipalBackend\AbstractBackend
     public function getPrincipalByPath($path)
     {
         $principal = [];
-        if ($path === 'principals/anonymous') {
+        if ($path === 'principals/public') {
             $principal = [
                 'id' => 1,
-                'uri' => 'principals/anonymous',
+                'uri' => 'principals/public',
                 '{http://sabredav.org/ns}email-address' => 'anonymous@example.com',
-                '{DAV:}displayname' => 'Anonymous',
+                '{DAV:}displayname' => 'Public',
             ];
         }
         return $principal;
@@ -46,7 +46,7 @@ class PrincipalBackend extends \Sabre\DAVACL\PrincipalBackend\AbstractBackend
         if ($prefixPath !== 'principals' || \count($searchProperties) === 0) {
             return [];
         }
-        return ['principals/anonymous'];
+        return ['principals/public'];
     }
 
     public function getGroupMemberSet($principal)

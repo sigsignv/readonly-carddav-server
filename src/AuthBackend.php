@@ -21,7 +21,7 @@ class AuthBackend implements \Sabre\DAV\Auth\Backend\BackendInterface
         if (!$auth->getCredentials()) {
             return [false, 'Basic auth must be failed at least once'];
         }
-        return [true, 'principals/anonymous'];
+        return [true, 'principals/public'];
     }
 
     public function challenge(RequestInterface $request, ResponseInterface $response)

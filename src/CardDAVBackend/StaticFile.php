@@ -19,7 +19,7 @@ class StaticFile implements BackendInterface
 
     public function getAddressBooksForUser($principalUri)
     {
-        if ($principalUri !== 'principals/anonymous') {
+        if ($principalUri !== 'principals/public') {
             return [];
         }
 
@@ -32,7 +32,7 @@ class StaticFile implements BackendInterface
             $addressBooks[] = [
                 'id' => $entry->getInode(),
                 'uri' => $entry->getFilename(),
-                'principaluri' => 'principals/anonymous',
+                'principaluri' => 'principals/public',
                 '{DAV:}displayname' => $entry->getFilename(),
                 '{'.CardDAV\Plugin::NS_CARDDAV.'}addressbook-description' => '',
                 '{http://calendarserver.org/ns/}getctag' => $entry->getMTime(),
