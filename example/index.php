@@ -12,7 +12,7 @@ $dir = dir(__DIR__ . '/data');
 // Backends
 $authBackend = new Cross\AuthBackend();
 $principalBackend = new Cross\PrincipalBackend();
-$carddavBackend = new Cross\CardDAVBackend\StaticFile($dir);
+$carddavBackend = new Cross\CardDAVBackend($dir);
 
 // Direcotry tree
 $nodes = [
